@@ -5,11 +5,13 @@ from quiz_UI import show_quiz
 from training_UI import show_training_UI
 import streamlit as st
 
+
 def main():
     st.set_page_config(layout="wide")
     st.sidebar.title('P.I.T.S.')
     st.sidebar.markdown('### Your Personalized Intelligent Tutoring System')
-
+    OPENAI_API_KEY = st.text_input("Enter your OpenAI API Key (or leave blank if running locally): ")
+   
     # Check if the user is returning and has opted to take a quiz
     if 'show_quiz' in st.session_state and st.session_state['show_quiz']:
         show_quiz(st.session_state['study_subject'])  # Show the quiz screen immediately
