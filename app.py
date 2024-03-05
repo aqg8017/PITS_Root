@@ -10,8 +10,11 @@ def main():
     st.set_page_config(layout="wide")
     st.sidebar.title('P.I.T.S.')
     st.sidebar.markdown('### Your Personalized Intelligent Tutoring System')
+    
+    import os
     OPENAI_API_KEY = st.text_input("Enter your OpenAI API Key (or leave blank if running locally): ")
-   
+    os.environ['MY_VARIABLE'] = 'my_value'
+    
     # Check if the user is returning and has opted to take a quiz
     if 'show_quiz' in st.session_state and st.session_state['show_quiz']:
         show_quiz(st.session_state['study_subject'])  # Show the quiz screen immediately
