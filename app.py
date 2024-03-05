@@ -11,9 +11,10 @@ def main():
     st.sidebar.title('P.I.T.S.')
     st.sidebar.markdown('### Your Personalized Intelligent Tutoring System')
     
-    import os
-    OPENAI_API_KEY = st.text_input("Enter your OpenAI API Key (or leave blank if running locally): ")
-    os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY 
+    if not OPENAI_API_KEY:
+        import os
+        OPENAI_API_KEY = st.text_input("Enter your OpenAI API Key (or leave blank if running locally): ")
+        os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY 
     
     # Check if the user is returning and has opted to take a quiz
     if 'show_quiz' in st.session_state and st.session_state['show_quiz']:
