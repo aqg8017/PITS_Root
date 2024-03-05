@@ -13,7 +13,7 @@ def main():
     
     import os
     OPENAI_API_KEY = st.text_input("Enter your OpenAI API Key (or leave blank if running locally): ")
-    os.environ['MY_VARIABLE'] = 'my_value'
+    os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY 
     
     # Check if the user is returning and has opted to take a quiz
     if 'show_quiz' in st.session_state and st.session_state['show_quiz']:
